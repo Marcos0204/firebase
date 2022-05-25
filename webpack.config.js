@@ -47,6 +47,7 @@ module.exports = {
     },
     compress: true,
     port: 4020,
+    historyApiFallback: true, 
     open:true
   },
 };

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, } from 'react-router-dom'
 import { GlobalStyle } from './Styles/GlobalStyles';
-import { Login } from './pages';
+import { Home, Login } from './pages';
 
 
 const App = () => {
@@ -11,7 +11,8 @@ const App = () => {
       <GlobalStyle/>
       
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
       </Routes>
       
     </BrowserRouter>
