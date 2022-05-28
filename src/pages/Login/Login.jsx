@@ -9,9 +9,6 @@ import { AuthAction } from '../../store/actions/authAction'
 
 import { Container, Form } from './LoginStyled'
 const Login = () => {
-  const hola = true
-  console.log(localStorage.getItem('isAuth'))
-  console.log(hola)
 
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState(Number)
