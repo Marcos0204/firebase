@@ -1,26 +1,42 @@
 import React, {useState} from 'react'
 import {  signInWithEmailAndPassword } from "firebase/auth";
-import { auth }  from '../../Firebase'
+import { useDispatch } from 'react-redux'
+
+
+import { auth }  from '../../Firebase' 
+import { AuthAction } from '../../store/actions/authAction'
 
 
 import { Container, Form } from './LoginStyled'
 const Login = () => {
+  const hola = true
+  console.log(localStorage.getItem('isAuth'))
+  console.log(hola)
+
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState(Number)
   const [ user, setUser ] = useState({})
+  const [ error, setError ] = useState({})
+
+  const dispatch = useDispatch();
+
+
+  //// funcion para iniciar sesion 
   const haledSubmit = (e) =>{
     e.preventDefault();
-    console.log(password)
+  
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
       setUser(user)
+      dispatch(AuthAction(user))
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      //setError(errorMessage);
     });
   }
   return (
@@ -39,7 +55,7 @@ const Login = () => {
            />
            <button 
             type='submit'
-            onClick={() => console.log('entrar')}
+            onClick={() => console.log('')}
             >
              Entrar
            </button>

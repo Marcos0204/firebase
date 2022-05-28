@@ -1,5 +1,7 @@
 export const Types = {
 
+    authUser : 'authUser',
+
     uiOpenModal : '[ui] open modal',
     uiCloseModal : '[ui] Close modal',
 
